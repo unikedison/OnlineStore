@@ -1,0 +1,39 @@
+<div class="container">
+    <form [formGroup]="updateProductForm" (ngSubmit)="Submit()">
+        <div class="form-group">
+            <label for="brand">Brand</label>
+            <input type="text" class="form-control" placeholder="Enter Brand" formControlName="brand">
+            <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" placeholder="Enter Title" formControlName="title">
+            <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" placeholder="Enter Price" formControlName="price">
+            <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" placeholder="Enter Description" formControlName="description">
+            <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" class="form-control" placeholder="Enter Category" formControlName="category">
+            <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+            <label for="imageUrl">Image</label>
+            <input type="file" class="form-control-file" formControlName="imageUrl">
+        </div>
+        <hr>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success" [disabled]="!updateProductForm.valid">Submit</button>
+            <button type="button" class="btn btn-warning ml-3" routerLink="/admin/product">Cancel</button>
+
+        </div>
+    </form>
+</div>

@@ -1,0 +1,58 @@
+<ng-container *ngIf="productList.length !== 0">
+    <div class="container-fluid pb-5">
+        <table class="table border table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pro of productList; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{pro.title}}</td>
+                    <td>{{pro.category}}</td>
+                    <td><img style="width: 100px;" src="{{pro.imageUrl}}" alt="Product Image"></td>
+                    <td>₹{{pro.price}}</td>
+                    <td>
+                        <i (click)="removeItem(pro)" class='fa fa-trash ml-3'></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"></td>
+                    <td><b>Grand Total: ₹{{grandTotal}}</b></td>
+                    <td><button (click)="EmptyCart()" class="btn btn-danger btn-sm">Empty Cart</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="productList.length === 0">
+    <div class="container-fluid  mt-100">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-body cart">
+                        <div class="col-sm-12 empty-cart-cls text-center">
+                            <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+                            <h3><strong>Your Cart is Empty</strong></h3>
+                            <h4>Add something to make me happy :)</h4>
+                            <a routerLink="/user/home" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</ng-container>

@@ -1,0 +1,19 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+
+    <div class="container d-flex flex-column mt-5 justify-content-center">
+        <img class="img-fluid mx-auto" src="../../../assets/images/login.png" alt="">
+
+        <label class="font-weight-bold mt-2" for="email">Email</label>
+        <input type="text" placeholder="Enter Email" name="email" formControlName="email">
+
+        <label class="font-weight-bold mt-2" for="password">Password</label>
+        <input type="password" name="password" placeholder="Enter Password" formControlName="password">
+
+        <button class="mt-4 btn btn-success" [disabled]="!loginForm.valid">Login</button>
+        <div class="psw mt-2">
+            <a routerLink="/register">Register</a>
+            <a class="ml-3" routerLink="/forgot-password">Forgot password?</a>
+        </div>
+    </div>
+
+</form>

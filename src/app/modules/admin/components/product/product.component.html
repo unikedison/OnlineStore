@@ -1,0 +1,36 @@
+<div class="container-fluid pb-5">
+    <button [routerLink]="['/admin/add-product']" class="btn btn-primary mb-2">Add Product</button>
+    <table class="table border table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Title</th>
+                <th scope="col">Price</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">ImageUrl</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pro of displayDetails; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{pro.brand}}</td>
+                <td>{{pro.title}}</td>
+                <td>{{pro.price}}</td>
+                <td>{{pro.description}}</td>
+                <td>{{pro.category}}</td>
+                <td>{{pro.imageUrl}}</td>
+                <td>
+                    <i [routerLink]="['/admin/update-product',pro.productNo]" class='fa fa-edit'></i>
+                    <i (click)="DeleteProduct(pro.productNo)" class='fa fa-trash ml-3'></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-center pagination">
+        <a class="ml-2" (click)="GetData(-10)" *ngIf="current>0">&#60;</a>
+        <a class="ml-2" (click)="GetData(10)" *ngIf="current<pageLength">&#62;</a>
+    </div>
+</div>
