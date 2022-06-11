@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
 
   Submit(): void{
     if (this.registerForm.valid) {
-      if(this.registerForm.get('password')?.value != this.registerForm.get('cpassword')){
+      if(this.registerForm.get('password')?.value != this.registerForm.get('cpassword')?.value){
         alert("Password Not Matched!")
         return;
       }
